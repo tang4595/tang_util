@@ -7,7 +7,10 @@ import 'package:tang_util/review/review_model.dart';
 
 class UtilReviewHelper {
   factory UtilReviewHelper() => _getInstance();
-  static UtilReviewHelper _getInstance() { return _instance; }
+  static UtilReviewHelper _getInstance() {
+    return _instance;
+  }
+
   static UtilReviewHelper get shared => _getInstance();
   static final UtilReviewHelper _instance = UtilReviewHelper._internal();
   UtilReviewHelper._internal();
@@ -26,14 +29,12 @@ extension Define on UtilReviewHelper {}
 // Getter
 
 extension Getters on UtilReviewHelper {
-
   bool get isInReview => _isInReview;
 }
 
 // Request
 
 extension _Request on UtilReviewHelper {
-
   _load() async {
     if (_reviewJsonUrl == null) return;
     final reviewInfo = await _api.getReviewInfo(_reviewJsonUrl ?? '');
@@ -46,7 +47,6 @@ extension _Request on UtilReviewHelper {
 // Private
 
 extension _Private on UtilReviewHelper {
-
   _runMonitor() {
     _timer?.cancel();
     _timer = Timer.periodic(const Duration(seconds: 5), (timer) {
@@ -71,7 +71,6 @@ extension _Actions on UtilReviewHelper {}
 // Public
 
 extension Public on UtilReviewHelper {
-
   setup({required String reviewJsonUrl}) async {
     _reviewJsonUrl = reviewJsonUrl;
     if (!Platform.isAndroid) return;
