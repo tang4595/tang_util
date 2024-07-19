@@ -21,7 +21,7 @@ class UtilApi {
           method: NetworkMethodType.get,
           absoluteUrl: true,
           isSimpleResponse: true,
-          needsAutoSetupDeviceInfo: false,
+          isNeedAutoSetupDeviceInfo: false,
         )
         .then((resp) => UtilReviewModel.fromJson(resp));
   }
